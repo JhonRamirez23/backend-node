@@ -1,0 +1,61 @@
+Node.js admite TypeScript de forma nativa desde la versión 23.6.0. Esto significa que los desarrolladores pueden ejecutar
+archivos TypeScript sin necesidad de configuraciones adicionales.
+
+1. Iniciar el proyecto con npm init -y
+
+2. Instalar las dependencias necesarias para correr la API:
+  • express:
+        → Permite gestionar solicitudes y respuestas HTTP.
+        → Escritura de manejadores de peticiones con diferentes verbos HTTP en diferentes caminos URL (rutas).
+        → Integración con motores de renderización de "vistas" para generar respuestas mediante la introducción de datos en plantillas.
+        → Establecer ajustes de aplicaciones web como qué puerto usar para conectar, y la localización de las plantillas que se utilizan para renderizar la respuesta.
+        → Añadir procesamiento de peticiones "middleware" adicional en cualquier punto dentro de la tubería de manejo de la petición.
+
+  • body-parser:
+        → Al parecer, ya incluido en versiones modernas de node.js
+
+  • dotenv:
+        → Centraliza la gestión de la configuración en un solo archivo.
+        → Permite mantener las configuraciones y credenciales fuera del código fuente.
+        → Permite usar distintas variables de entorno según lo que necesitemos.
+        → Permite almacenar información confidencial, como claves API y contraseñas de bases de datos.
+
+  • morgan: Morgan es una herramienta de registro para Node.js que permite registrar solicitudes, errores y más en la consola. Es útil para depurar y analizar el rendimiento del servidor web.
+        → Es un middleware que funciona en el marco Node.js Express.
+        → Ofrece una amplia gama de opciones de personalización.
+        → Puede escribir datos de registro en una variedad de flujos de salida, incluida la consola, los archivos o incluso los servidores remotos.
+        → Está diseñado para ser rápido y liviano.
+
+3. Instalar en el entorno de desarrollo lo siguiente:
+  • nodemon
+        → Vigila los archivos del proyecto.
+        → Reinicia el servidor cada vez que detecta cambios en el código
+        → Permite añadir livereload a Node
+        → Evita tener que reiniciar manualmente el servidor de aplicaciones Node.js
+
+  • typescript
+
+  • @types/express
+
+  • @types/morgan
+
+  • ts-node-dev
+
+  • tsconfig-paths
+
+4. Inicializar archivo de TypeScript con:
+    npx tsc --init
+
+
+/* ---------------------------- INYECCIÓN DE DEPENDENCIAS -------------------------*/
+
+Es un patrón que permite que los componentes de la aplicación (como servicios o controladores) reciban sus dependencias desde el exterior, en lugar de crearlas directamente.
+Para nuestro caso de uso, el servicio de usuarios no crea el repositorio directamente. En su lugar, lo recibe como un parámetro en su constructor.
+
+Permite cambiar de una base de datos y un repositorio, sin necesidad de modificar lo demás.
+Para este caso, se puede cambiar de MongoDB a MySQL o PostgreSQL, solo cambiando el repositorio y la base de datos final.
+
+/* ---------------------------- CREACIÓN DE ROLES -------------------------*/
+
+Se crea el mismo archivo de UsersTypes.tsx pero definiendo los roles.
+Se cambian los nombres de users a roles y los parámetros se cambian a lower case para diferenciarlos de una función.

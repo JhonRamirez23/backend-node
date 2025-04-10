@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "es6",                              /* Especifica el objetivo de la versión ECMAScript. */
+    "outDir": "./dist",                           /* Redirige la estructura de la salida al directorio. */
+    "rootDir": "./src",                           /* Especifica la raíz del directorio de los archivos de ingreso. Usa la estructura del control de salida del directorio con --outDir. */
+    "baseUrl": "./src",                           /* Directorio base para resolver nombres de módulos no relativos. */
+    "paths": {                                    /* Una serie de entradas que reasignan las importaciones a ubicaciones de búsqueda relativas a la 'baseUrl'. */
+      "@controllers/*": ["controllers/*"],
+      "@services/*": ["services/*"],
+      "@repositories/*": ["repositories/*"],
+      "@models/*": ["models/*"],
+      "@routes/*": ["routes/*"],
+      "@middlewares/*": ["middlewares/*"],
+      "@server/*": ["server/*"],
+      "@config/*": ["config/*"],
+    },
+
+    /* Modules */
+    "module": "commonjs",                          /* Especifica qué código del módulo se genera. */
+    "esModuleInterop": true,                       /* Emite JavaScript adicional para facilitar la importación. */
+
+    /* Type Checking */
+    "strict": true,                                /* Activar todas las opciones de comprobación de tipo estricta. */
+    "skipLibCheck": true                           /* Omite la comprobación de tipo de todos los archivos .d.ts. */
+  },
+
+  // "include" y "exclude" son usados para especificar qué archivos están incluidos y excluidos de la compilación.
+  "include": ["src/**/*"],                        /* Incluye todos los archivos TypeScript en el directorio src. */
+  "exclude": ["node_modules"],                    /* Excluye el directorio node_modules de la compilación. */
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]        /* Requiere tsconfig-paths/register para resolver los módulos según la configuración de paths en tsconfig.json. */
+  }
+}

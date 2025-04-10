@@ -1,0 +1,13 @@
+/
+├── src/                        # Carpeta principal del código fuente
+│   ├── controllers/            # Controladores para manejar las solicitudes HTTP
+│   ├── models/                 # Modelos de datos (por ejemplo, para interactuar con la base de datos)
+│   ├── routes/                 # Definición de rutas de la API
+│   ├── services/               # Lógica de negocio o servicios de la aplicación
+│   └── app.js                  # Punto de entrada de la aplicación
+├── config/                     # Configuraciones de la aplicación (por ejemplo, base de datos, autenticación)
+├── migrations/                 # Migraciones de base de datos (si se utiliza un sistema de migraciones)
+├── seeds/                      # Datos de semilla para inicializar la base de datos (opcional)
+├── tests/                      # Pruebas unitarias y de integración
+├── .env                        # Archivo de entorno para variables de configuración sensibles
+└── package.json                # Archivo de configuración de npm con las dependencias y scripts
