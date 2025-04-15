@@ -33,6 +33,6 @@ export class RolesService implements IRolesService {
 
   // Método para eliminar un usuario por su ID. Utiliza el repositorio de usuarios para buscar el usuario y luego eliminarlo.
   async deleteRoles(id: string): Promise<void> {
-    return await this.deleteRoles(id); // Busca un usuario por su ID y lo elimina. Devuelve el usuario eliminado o null si no se encuentra.
+    return await this.rolesRepository.delete(id);// Busca un usuario por su ID y lo elimina. Devuelve el usuario eliminado o null si no se encuentra.
   };
 };

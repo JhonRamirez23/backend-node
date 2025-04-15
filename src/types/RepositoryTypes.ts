@@ -20,7 +20,7 @@ export interface IUpdatable<T> {
 }
 
 export interface IDeleatable<T> {
-  delete(id: string): Promise<T | null>; // Método para eliminar un registro por su ID
+  delete(id: string): Promise<void>; // Método para eliminar un registro por su ID
 }
 
 export interface IFindByEmail<T> {
