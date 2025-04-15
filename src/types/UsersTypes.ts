@@ -1,6 +1,6 @@
 // Importamos la interface creada en el archivo anterior para definir un repositorio genérico
 
-import { ICreatable, IDeleatable, IReadable, IUpdatable } from "./RepositoryTypes";
+import { ICreatable, IDeleatable, IFindByEmail, IFindByUsername, IReadable, IUpdatable } from "./RepositoryTypes";
 
 export interface User {
   id: string;
@@ -17,6 +17,8 @@ export interface IUserRepository extends ICreatable<User> {};
 export interface IUserRepository extends IReadable<User> {};
 export interface IUserRepository extends IUpdatable<User> {};
 export interface IUserRepository extends IDeleatable<User> {};
+export interface IUserRepository extends IFindByUsername<User> {};
+export interface IUserRepository extends IFindByEmail<User> {};
 
 // Definimos una interface para crear la lógica de negocio de los usuarios
 export interface IUserService {
@@ -26,4 +28,5 @@ export interface IUserService {
   updateUser(id: string, user: Partial<User>): Promise<User | null>; // Usa el método update del repositorio genérico
   deleteUser(id: string): Promise<void>; // Usa el método delete del repositorio genérico
   findUserByEmail(email: string): Promise<User | null>; // Usa el método get del repositorio genérico
+  findByUsername(username: string): Promise<User | null>; // Usa el método get del repositorio genérico
 }

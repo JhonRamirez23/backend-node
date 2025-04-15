@@ -22,7 +22,7 @@ export class RolesRepository implements IRolesRepository {
     return await RolesModel.findByIdAndUpdate(id, data, { new: true}).exec(); // Busca un usuario por su ID y lo actualiza con los nuevos datos. El tercer parámetro { new: true } indica que se debe devolver el documento actualizado.
   }
 
-  async delete(id: string): Promise<Roles | null> {
-    return await RolesModel.findByIdAndDelete(id).exec(); // Busca un usuario por su ID y lo elimina. Devuelve el usuario eliminado o null si no se encuentra.
+  async delete(id: string): Promise<void> {
+    await RolesModel.findByIdAndDelete(id).exec(); // Busca un usuario por su ID y lo elimina. Devuelve el usuario eliminado o null si no se encuentra.
   }
 }

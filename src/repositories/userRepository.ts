@@ -27,9 +27,8 @@ export class UserRepository implements IUserRepository {
     return await UserModel.findByIdAndUpdate(id, data, { new: true}).exec(); // Busca un usuario por su ID y lo actualiza con los nuevos datos. El tercer parámetro { new: true } indica que se debe devolver el documento actualizado.
   }
 
-  async delete(id: string): Promise<User | null> {
-    const deletedUser = await UserModel.findByIdAndDelete(id).exec(); // Busca un usuario por su ID y lo elimina de la base de datos
-    return deletedUser; // Devuelve el usuario eliminado o null si no se encuentra
+  async delete(id: string): Promise<void> {
+    await UserModel.findByIdAndDelete(id).exec(); // Busca un usuario por su ID y lo elimina de la base de datos
   }
 
   async findByEmail(email: string): Promise<User | null> {
