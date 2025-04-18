@@ -20,7 +20,7 @@ export class UserRepository implements IUserRepository {
   }
 
   async findByUsername(username: string): Promise<User | null> {
-    return await UserModel.findOne({ username }).exec(); // Busca un usuario por su nombre de usuario y devuelve el usuario encontrado o null si no se encuentra
+    return await UserModel.findOne({ username }); // Busca un usuario por su nombre de usuario y devuelve el usuario encontrado o null si no se encuentra
   }
 
   async update(id: string, data: Partial<User>): Promise<User | null> {
@@ -32,6 +32,6 @@ export class UserRepository implements IUserRepository {
   }
 
   async findByEmail(email: string): Promise<User | null> {
-    return await UserModel.findOne({ email }).exec(); // Busca un usuario por su correo electrónico y devuelve el usuario encontrado o null si no se encuentra
+    return await UserModel.findOne({ email }); // Busca un usuario por su correo electrónico y devuelve el usuario encontrado o null si no se encuentra
   }
 }

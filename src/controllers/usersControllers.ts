@@ -7,73 +7,73 @@ import { Request, Response } from "express";
 const userRepository: IUserRepository = new UserRepository();
 const userService: IUserService = new UserService(userRepository);
 
-export const findUsers = async (req: Request, res: Response) => {
+export const findUsers = async (req: Request, res: Response): Promise<any> => {
   try {
     const users = await userService.findAllUsers();
 
     if (users === null || users.length === 0) {
-      res.status(404).json({ message: "No users found" });
+      return res.status(404).json({ message: "No users found" });
     }
-    res.status(200).json(users);
+    return res.status(200).json(users);
 
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
+    return res.status(500).json(err);
   }
 };
 
-export const findById = async (req: Request, res: Response) => {
+export const findById = async (req: Request, res: Response): Promise<any> => {
   try {
     const userId = await userService.findUserById(req.params.id);
 
     if (!userId) {
-      res.status(404).json({ message: "User not found" });
+      return res.status(404).json({ message: "User not found" });
     }
     return res.status(200).json(userId);
 
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
+    return res.status(500).json(err);
   }
 };
 
-export const createUser = async (req: Request, res: Response) => {
+export const createUser = async (req: Request, res: Response): Promise<any> => {
   try {
     const newUser: User = req.body;
     const result = await userService.createUser(newUser);
 
-    res.status(201).json(result);
+    return res.status(201).json(result);
   } catch (err) {
     console.log(err);
-    res.status(400).json({ message: "Error creating user", err });
+    return res.status(400).json({ message: "Error creating user", err });
   }
 }
 
-export const updateUser = async (req: Request, res: Response) => {
+export const updateUser = async (req: Request, res: Response): Promise<any> => {
   try {
     const update = await userService.updateUser(req.params.id, req.body);
 
     if (!update) {
-      res.status(404).json({ message: "User not found" });
+      return res.status(404).json({ message: "User not found" });
     }
     return res.status(200).json(update);
 
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
+    return res.status(500).json(err);
   }
 }
 
-export const deleteUser = async (req: Request, res: Response) => {
+export const deleteUser = async (req: Request, res: Response): Promise<any> => {
   try {
     const deleteUser = await userService.deleteUser(req.params.id);
 
   if (deleteUser === null) {
-    res.status(404).json({ message: "User not found" });
+    return res.status(404).json({ message: "User not found" });
   }
   return res.status(200).json(deleteUser);
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
+    return res.status(500).json(err);
   }
 }

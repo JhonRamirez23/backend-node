@@ -26,6 +26,9 @@ archivos TypeScript sin necesidad de configuraciones adicionales.
         → Puede escribir datos de registro en una variedad de flujos de salida, incluida la consola, los archivos o incluso los servidores remotos.
         → Está diseñado para ser rápido y liviano.
 
+  • bcrypjs: bcrypjs es una herramienta para encriptar contraseñas pero, a diferencia de bcrypt, esta está actualizada al 2025, lo que hace más segura la dependencia.
+        → La instalación es npm i bcryptjs
+
 3. Instalar en el entorno de desarrollo lo siguiente:
   • nodemon
         → Vigila los archivos del proyecto.

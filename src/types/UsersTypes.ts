@@ -1,16 +1,13 @@
-// Importamos la interface creada en el archivo anterior para definir un repositorio genérico
-
+import { Document } from "mongoose";
 import { ICreatable, IDeleatable, IFindByEmail, IFindByUsername, IReadable, IUpdatable } from "./RepositoryTypes";
 
-export interface User {
-  id: string;
+export interface User extends Document {
   name: string;
   username: string;
   email: string;
   password: string;
-  createdAt: Date;
-  updatedAt: Date;
-}
+  comparePassword(password: string): Promise<boolean>; // Método para comparar la contraseña ingresada con la almacenada en la base de datos
+  }
 
 // Definimos una interface que extiende de Repository para crear los datos de los usuarios
 export interface IUserRepository extends ICreatable<User> {};
