@@ -2,6 +2,7 @@ import { UserRepository } from "@repositories/userRepository";
 import { UserService } from "@services/UserService";
 import { NextFunction, Request, Response } from "express";
 import { IUserRepository, IUserService, User } from "types/UsersTypes";
+import jwt from "jsonwebtoken"
 
 
 // Inyección de dependencias necesarias para las rutas
@@ -44,7 +45,14 @@ export const loginUser = async (req: Request, res: Response): Promise<any> => {
     if (!conparePassword) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
-    res.status(200).json({ message: "Login successful" });
+
+    // Aplicación de jwt para la autenticación
+    const token = jwt.sign({ id: userPassword._id, email: userPassword.email, username: userPassword.username }, process.env.JWT_SECRET as string, {
+      expiresIn: "1h" // El token expirará en 1 hora
+
+    })
+
+    res.status(200).json({ message: "Login successful", token });
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);

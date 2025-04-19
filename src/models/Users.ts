@@ -3,8 +3,7 @@ import bcrypt, { hash } from "bcryptjs"
 import { User } from "types/UsersTypes";
 
 // Se defne el esquema de la base de datos
-const UserSchema: Schema = new Schema<User>(
-  {
+const UserSchema: Schema = new Schema<User> ({
     name: {
       type: String,
       required: true,

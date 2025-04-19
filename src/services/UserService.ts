@@ -1,3 +1,4 @@
+import { Query } from 'types/RepositoryTypes';
 import { IUserRepository, IUserService, User } from 'types/UsersTypes';
 
 export class UserService implements IUserService {
@@ -14,7 +15,11 @@ export class UserService implements IUserService {
   }
 
   // Método para encontrar todos los usuarios en la base de datos. Utiliza el repositorio de usuarios para obtener la lista de usuarios.
-  async findAllUsers(): Promise<User[]> {
+  async findAllUsers(query?: Query): Promise<User[]> {
+    if (query) {
+      // Si se proporciona una consulta, se utiliza para filtrar los resultados.
+      return await this.userRepository.find(query);
+    }
     return await this.userRepository.find();
   }
 

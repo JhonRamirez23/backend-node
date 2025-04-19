@@ -1,5 +1,6 @@
 import { IRolesRepository, Roles } from "types/RolesTypes";
 import { RolesModel } from "@models/Roles";
+import { Query } from "types/RepositoryTypes";
 // Esta clase implementa la interfaz IRolesRepository y proporciona métodos para manejar usuarios en memoria.
 
 // Se usa el método "implements" para indicar que una clase va a implementar una interfaz.
@@ -10,8 +11,8 @@ export class RolesRepository implements IRolesRepository {
     return await newRoles.save(); // Guarda el nuevo usuario en la base de datos y devuelve el usuario guardado
   };
 
-  async find(): Promise<Roles[]> {
-    return await RolesModel.find().exec(); // Devuelve todos los usuarios de la base de datos y exec ejecuta la consulta
+  async find(query?: Query): Promise<Roles[]> {
+    return await RolesModel.find(query || {}).exec(); // Devuelve todos los usuarios de la base de datos y exec ejecuta la consulta
   }
 
   async findById(id: string): Promise<Roles | null> {

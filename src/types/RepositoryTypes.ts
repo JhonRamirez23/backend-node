@@ -6,12 +6,15 @@
 // También se aplica el principio de segregación de interfaces, que establece que
 // las interfaces deben ser específicas y no contener métodos innecesarios.
 
+// Se exporta un tipo Query que es un objeto vacío, lo que significa que puede contener cualquier dato.
+export type Query = Record<string, unknown>;
+
 export interface ICreatable<T> {
   create(data: T): Promise<T>; // Método para crear un nuevo registro
 }
 
 export interface IReadable<T> {
-  find(): Promise<T[]>; // Método para encontrar todos los registros
+  find(query?: Query): Promise<T[]>; // Método para encontrar todos los registros
   findById(id: string): Promise<T | null>; // Método para encontrar un registro por su ID
 }
 
