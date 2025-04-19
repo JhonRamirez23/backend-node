@@ -1,4 +1,5 @@
 import { UserModel } from "@models/Users";
+import { Query } from "types/RepositoryTypes";
 import { IUserRepository, User } from "types/UsersTypes";
 
 // Esta clase implementa la interfaz IUserRepository y proporciona métodos para manejar usuarios en memoria.
@@ -11,8 +12,8 @@ export class UserRepository implements IUserRepository {
     return await newUser.save(); // Guarda el nuevo usuario en la base de datos y devuelve el usuario guardado
   };
 
-  async find(): Promise<User[]> {
-    return await UserModel.find().exec(); // Devuelve todos los usuarios de la base de datos y exec ejecuta la consulta
+  async find(query?: Query): Promise<User[]> {
+    return await UserModel.find(query || {}).exec(); // Devuelve todos los usuarios de la base de datos y exec ejecuta la consulta
   }
 
   async findById(id: string): Promise<User | null> {

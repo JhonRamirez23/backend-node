@@ -3,3 +3,8 @@ node_modules/
 
 # env
 .env
+
+# Documento de texto
+Documentación con TypeScript.txt
+Estructura de carpetas NodeJS.txt
+repositories/doc.txt

@@ -29,13 +29,10 @@ archivos TypeScript sin necesidad de configuraciones adicionales.
   • bcrypjs: bcrypjs es una herramienta para encriptar contraseñas pero, a diferencia de bcrypt, esta está actualizada al 2025, lo que hace más segura la dependencia.
         → La instalación es npm i bcryptjs
 
-3. Instalar en el entorno de desarrollo lo siguiente:
-  • nodemon
-        → Vigila los archivos del proyecto.
-        → Reinicia el servidor cada vez que detecta cambios en el código
-        → Permite añadir livereload a Node
-        → Evita tener que reiniciar manualmente el servidor de aplicaciones Node.js
+  • jsonwebtoken: permite compartir información de forma segura entre aplicaciones y servicios. Se utiliza para autenticar usuarios y autorizar el acceso a recursos.
+        → La instalación se realiza npm i jsonwebtoken.
 
+3. Instalar en el entorno de desarrollo lo siguiente:
   • typescript
 
   • @types/express
@@ -43,6 +40,8 @@ archivos TypeScript sin necesidad de configuraciones adicionales.
   • @types/morgan
 
   • ts-node-dev
+      → Vigila los archivos del proyecto.
+      → Reinicia el servidor cada vez que detecta cambios en el código
 
   • tsconfig-paths
 

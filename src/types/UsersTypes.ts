@@ -1,5 +1,5 @@
 import { Document } from "mongoose";
-import { ICreatable, IDeleatable, IFindByEmail, IFindByUsername, IReadable, IUpdatable } from "./RepositoryTypes";
+import { ICreatable, IDeleatable, IFindByEmail, IFindByUsername, IReadable, IUpdatable, Query } from "./RepositoryTypes";
 
 export interface User extends Document {
   name: string;
@@ -20,7 +20,7 @@ export interface IUserRepository extends IFindByEmail<User> {};
 // Definimos una interface para crear la lógica de negocio de los usuarios
 export interface IUserService {
   createUser(data: User): Promise<User>; // Usa el método create del repositorio genérico
-  findAllUsers(): Promise<User[]>; // Usa el método get del repositorio genérico
+  findAllUsers(query?: Query): Promise<User[]>; // Usa el método get del repositorio genérico
   findUserById(id: string): Promise<User | null>; // Usa el método get del repositorio genérico
   updateUser(id: string, user: Partial<User>): Promise<User | null>; // Usa el método update del repositorio genérico
   deleteUser(id: string): Promise<void>; // Usa el método delete del repositorio genérico

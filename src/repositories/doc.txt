@@ -1,4 +1,4 @@
 <---------------- Patrón Repositorio -------------------------->
 
 El patrón repositorio es una abastracción que actua como intermediario entre la aplicación y la capa de accesso a los datos (como una base de datos).
-En lugar de interactuar directamente con la base de datos desde los controladores o servicios, se usa un repositorio que se encarga de las operaciones de persistencia, como crear, lees, actualizar y eliminar (CRUD).
+En lugar de interactuar directamente con la base de datos desde los controladores o servicios, se usa un repositorio que se encarga de las operaciones de persistencia, como crear, leer, actualizar y eliminar (CRUD).

@@ -1,3 +1,4 @@
+import { Query } from "types/RepositoryTypes";
 import { IRolesRepository, IRolesService, Roles } from "types/RolesTypes";
 
 export class RolesService implements IRolesService {
@@ -14,7 +15,11 @@ export class RolesService implements IRolesService {
   };
 
   // Método para encontrar todos los usuarios en la base de datos. Utiliza el repositorio de usuarios para obtener la lista de usuarios.
-  async findRoles(): Promise<Roles[]> {
+  async findRoles(query?: Query): Promise<Roles[]> {
+    if (query) {
+      // Si se proporciona una consulta, se utiliza para filtrar los resultados.
+      return await this.rolesRepository.find(query);
+    }
     return await this.rolesRepository.find(); // Devuelve todos los usuarios de la base de datos.
   };
 
